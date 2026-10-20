@@ -1,0 +1,110 @@
+/* ==========================================================================
+CHECK-POINT 02 - DINÂMICA VISUAL FLUIDA E SUAVE
+========================================================================== */
+
+/* Ajuste Global Interativo para acabar com transições brutas */
+.nav-menu ul li a,
+.btn-primary,
+.btn-submit,
+.card,
+.form-group input,
+.tech-img-placeholder {
+transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* --------------------------------------------------------------------------
+PSEUDO-CLASSES (Mínimo de 3 exigidas)
+-------------------------------------------------------------------------- */
+
+/* Pseudo-classe 1: :hover com mudança de cor sutil e gradativa */
+.nav-menu ul li a:hover {
+color: #c49a6c;
+}
+
+.btn-primary:hover {
+background-color: #3b0a10;
+box-shadow: 0 10px 25px rgba(74, 18, 26, 0.2);
+}
+
+/* Pseudo-classe 2: :focus para suavizar o campo de formulário selecionado */
+.form-group input:focus {
+border-color: #4a121a;
+background-color: #ffffff;
+outline: none;
+box-shadow: 0 0 12px rgba(74, 18, 26, 0.12);
+}
+
+/* Pseudo-classe 3: :nth-child() para alternar detalhes elegantes nas bordas dos cards */
+.cards-container .card:nth-child(odd) {
+border-left: 3px solid #c49a6c;
+}
+.cards-container .card:nth-child(even) {
+border-left: 3px solid #4a121a;
+}
+
+/* --------------------------------------------------------------------------
+TRANSFORMAÇÕES (Mínimo de 2 exigidas)
+-------------------------------------------------------------------------- */
+
+/* Transformação 1: scale() aplicada suavemente nos blocos informativos */
+.card:hover {
+transform: scale(1.02);
+box-shadow: 0 15px 30px rgba(42, 30, 28, 0.08);
+}
+
+/* Transformação 2: translate() combinada para elevação fluida do botão */
+.btn-submit:hover {
+transform: translateY(-3px);
+background-color: #2b0b11;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* EXTRA: Uma leve rotação na área visual do Arduino ao interagir */
+.tech-img-placeholder:hover {
+transform: rotate(0.5deg) scale(1.01);
+}
+
+/* --------------------------------------------------------------------------
+PSEUDO-ELEMENTOS (Mínimo de 2 exigidos)
+-------------------------------------------------------------------------- */
+
+/* Pseudo-elemento 1: ::after criando um sublinhado refinado abaixo dos cabeçalhos */
+.about-section h2::after,
+.tech-text h2::after,
+.contact-section h2::after {
+content: "";
+display: block;
+width: 60px;
+height: 1px;
+background-color: #c49a6c;
+margin: 15px auto 0 auto;
+}
+
+.tech-text h2::after {
+margin: 15px 0 0 0;
+}
+
+/* Pseudo-elemento 2: ::selection alterando a cor de destaque do texto */
+::selection {
+background-color: #4a121a;
+color: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+ANIMAÇÃO COM @KEYFRAMES (Mínimo de 1 exigida)
+-------------------------------------------------------------------------- */
+@keyframes elegantFade {
+from {
+opacity: 0;
+transform: translateY(20px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Corrigido: Ativando a animação diretamente na estrutura do banner que você já possui */
+.hero-content {
+animation: elegantFade 1.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
